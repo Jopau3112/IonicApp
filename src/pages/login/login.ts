@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 
 @IonicPage({
   name: "mi-login"
@@ -12,11 +13,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  usuario: any = {
+    username: "",
+    password: ""
+  }
+
+  constructor(public navCtrl: NavController, private modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  realizarLogin() {
+    console.log("Realizando login...");
+    console.log(this.usuario);
+    //Servicio Login
+    this.navCtrl.push("mi-menu-principal")
+  }
+
+  abrirModalRecuperar() {
+    this.modalCtrl.create("mi-recuperar-password").present();
   }
 
 
