@@ -8,7 +8,7 @@
 
 
 <ion-content padding>
-    <div class="main-container background-primary">
+    <div class="main-container">
         <div class="logo-container">
             <img src="assets/imgs/ionic-logo.png">
         </div>
@@ -16,7 +16,10 @@
             <form #formularioLogin="ngForm" class="" novalidate>
                 <ion-list>
                     <ion-item class="form-group">
-                        <ion-label floating>Usuario</ion-label>
+                        <ion-label floating>
+                            <!-- <ion-icon ios="ios-person" md="md-person"></ion-icon> -->
+                            <span>USUARIO</span>
+                        </ion-label>
                         <ion-input type="text" class="form-control" id="username" name="username" [(ngModel)]="usuario.username" #username="ngModel" required></ion-input>
                     </ion-item>
                     <!-- <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
@@ -25,22 +28,62 @@
                     </div>
                      -->
                     <ion-item class="form-group">
-                        <ion-label floating>Contraseña</ion-label>
-                        <ion-input type="password" class="form-control" id="password" name="password" [(ngModel)]="usuario.password" #password="ngModel" required></ion-input>
+                        <ion-label floating>
+                            <!-- <ion-icon ios="ios-key" md="md-key"></ion-icon> -->
+                            <span>CONTRASEÑA</span>
+                        </ion-label>
+                        <ion-input type="text" class="form-control" id="password" name="password" [(ngModel)]="usuario.password" #password="ngModel" required></ion-input>
                     </ion-item>
                     <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
                         <p [hidden]="!password.hasError('required')">Password es requirido.</p>
                         <p [hidden]="!password.hasError('minlength')">Mínimo 4 caracteres.</p>
                     </div> -->
-                </ion-list><br>
-                <button ion-button block color="primary" [disabled]="!formularioLogin.form.valid" (click)="realizarLogin()">Entrar</button>
+                    <ion-icon class="icon-eye" name="eye" (click)="mostrarOcultarPassword()" *ngIf="passwordOculto && usuario.password"></ion-icon>
+                    <ion-icon class="icon-eye" name="eye-off" (click)="mostrarOcultarPassword()" *ngIf="!passwordOculto && usuario.password"></ion-icon>
+                </ion-list>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-6>
+                            <ion-item>
+                                <ion-label>RECUERDAME</ion-label>
+                                <ion-checkbox color="morado" checked="true"></ion-checkbox>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-6>
+                            <span class="recuperar" (click)="abrirModalRecuperar()">RECUPERAR CONTRASEÑA</span>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+                <button class="button-primary" ion-button block color="primary" [disabled]="!formularioLogin.form.valid" (click)="realizarLoginNormal()">
+                        <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>
+                        <span>ENTRAR</span>
+                </button>
             </form>
         </div>
-
-        <div class="link-container">
-            <ion-icon name="person"></ion-icon>
-
-            <span class="recuperar" (click)="openModalRecuperar()">¿Has olvidado contraseña?</span>
+        <div class="buttons-container">
+            <ion-grid>
+                <ion-row>
+                    <!-- <ion-col col-3>
+                        <ion-icon name="logo-google" (click)="realizarLoginGoogle()"></ion-icon>
+                    </ion-col>
+                    <ion-col col-3>
+                        <ion-icon name="logo-facebook" (click)="realizarLoginFacebook()"></ion-icon>
+                    </ion-col> -->
+                    <ion-col col-6>
+                        <ion-icon ios="ios-person-add" md="md-person-add" (click)="abriModalRegstro()"></ion-icon>
+                    </ion-col>
+                    <ion-col col-6>
+                        <ion-fab>
+                            <button ion-fab><ion-icon name="add"></ion-icon></button>
+                            <ion-fab-list side="left">
+                                <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+                                <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+                                <button ion-fab><ion-icon name="logo-google"></ion-icon></button>
+                            </ion-fab-list>
+                        </ion-fab>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
         </div>
     </div>
 </ion-content>
