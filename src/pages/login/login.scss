@@ -1,16 +1,84 @@
 page-login {
+    * {
+        font-family: Lato, Sans-serif;
+    }
     .logo-container {
+        margin-top: 50px;
         text-align: center;
         width: 100%;
-        border: 1px solid red;
+        // border: 1px solid red;
     }
     .logo-container img {
-        width: 50%;
+        width: 60%;
     }
     .form-container {
-        margin-top: 30px;
+        margin-top: 20px;
         text-align: center;
         width: 100%;
-        border: 1px solid red;
+        // border: 1px solid red;
+    }
+    .form-container ion-list ion-item {
+        background-color: transparent;
+        padding: 0px !important;
+    }
+    .form-container .item-inner {
+        border-bottom: 1px solid #62278D !important;
+    }
+    .form-container .item-input:last-child {
+        border-bottom: 0px;
+    }
+    .form-container .input-wrapper ion-label {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+        color: #fff;
+        font-family: Lato, Sans-serif;
+    }
+    .form-container .input-has-value .input-wrapper ion-label,
+    .form-container .input-has-focus .input-wrapper ion-label {
+        color: #3EAB9E;
+    }
+    .form-container .input-has-focus .item-inner {
+        border-bottom: 1px solid #62278D !important;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+    }
+    .form-container .input-has-focus .item-input:last-child {
+        border-bottom: 0px !important;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom: 1px solid #62278D !important;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+    }
+    .form-container input {
+        font-weight: bold;
+        font-size: 15px;
+        color: #fff;
+        font-family: Lato, Sans-serif;
+    }
+    .form-container button {
+        border-radius: 20px;
+        border: 1px solid #fff;
+        height: 45px;
+        background-color: #62278D;
+        color: #3EAB9E;
+        font-size: 15px;
+        font-family: Lato, Sans-serif;
+        font-weight: bold;
+    }
+    .link-container {
+        margin-top: 50px;
+        text-align: right;
+        width: 100%;
+    }
+    .link-container span {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 13px;
+        color: #fff;
     }
 }

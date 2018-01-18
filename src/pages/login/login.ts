@@ -26,10 +26,11 @@ export class LoginPage {
   }
 
   realizarLogin() {
-    console.log("Realizando login...");
-    console.log(this.usuario);
-    //Servicio Login
-    this.navCtrl.push("mi-menu-principal")
+    alert("asdadas");
+    // console.log("Realizando login...");
+    // console.log(this.usuario);
+    // //Servicio Login
+    // this.navCtrl.push("mi-menu-principal")
   }
 
   abrirModalRecuperar() {

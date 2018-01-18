@@ -16,29 +16,31 @@
             <form #formularioLogin="ngForm" class="" novalidate>
                 <ion-list>
                     <ion-item class="form-group">
-                        <ion-label floating>Username</ion-label>
-                        <ion-input type="text" class="form-control" minlength="4" id="username" name="username" [(ngModel)]="usuario.username" #username="ngModel" required></ion-input>
+                        <ion-label floating>Usuario</ion-label>
+                        <ion-input type="text" class="form-control" id="username" name="username" [(ngModel)]="usuario.username" #username="ngModel" required></ion-input>
                     </ion-item>
-                    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                    <!-- <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
                         <p [hidden]="!username.hasError('required')">Username es requirido.</p>
                         <p [hidden]="!username.hasError('minlength')">Mínimo 4 caracteres.</p>
                     </div>
+                     -->
                     <ion-item class="form-group">
-                        <ion-label floating>Password</ion-label>
-                        <ion-input type="password" class="form-control" minlength="4" id="password" name="password" [(ngModel)]="usuario.password" #password="ngModel" required></ion-input>
+                        <ion-label floating>Contraseña</ion-label>
+                        <ion-input type="password" class="form-control" id="password" name="password" [(ngModel)]="usuario.password" #password="ngModel" required></ion-input>
                     </ion-item>
-                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                    <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
                         <p [hidden]="!password.hasError('required')">Password es requirido.</p>
                         <p [hidden]="!password.hasError('minlength')">Mínimo 4 caracteres.</p>
-                    </div>
+                    </div> -->
                 </ion-list><br>
                 <button ion-button block color="primary" [disabled]="!formularioLogin.form.valid" (click)="realizarLogin()">Entrar</button>
-
             </form>
-            <br>
-            <div text-center>
-                <span class="recuperar" (click)="openModalRecuperar()">¿Has olvidado contraseña?</span>
-            </div>
+        </div>
+
+        <div class="link-container">
+            <ion-icon name="person"></ion-icon>
+
+            <span class="recuperar" (click)="openModalRecuperar()">¿Has olvidado contraseña?</span>
         </div>
     </div>
 </ion-content>
