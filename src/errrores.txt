@@ -1,0 +1,9 @@
+1.ERROR:
+-------------------------------------------
+ANDROID_HOME=/Users/erp/Library/Android/sdk
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
+Error: spawn EACCES
+
+1.SOLUCION
+-------------------------------------------
+sudo chmod 755 /Applications/Android\ Studio.app/Contents/gradle/gradle-4.1/bin/gradle

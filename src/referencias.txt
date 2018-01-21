@@ -1,0 +1,16 @@
+PLUGINS
+--------
+
+1. PLUGIN HUELLA DIGITAL (Android Fingerprint Auth)
+    - https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth
+
+2. PLUGIN TWITTER LOGIN (Twitter Connect)
+    - https://github.com/chroa/twitter-connect-plugin
+    - https://ionicthemes.com/tutorials/about/ionic2-twitter-login
+
+    ionic cordova plugin add https://github.com/chroa/twitter-connect-plugin --variable FABRIC_KEY=800a1b43c2d95893c1d409db9a45b3147dff174d --variable TWITTER_KEY=0P5Aw2cxlA5vPvL1U8mcuRv8D --variable TWITTER_SECRET=3AQZo134Dusx8IbsKKCxt405gp3ITZpe09ANyXFzxgTRWEPV7g
+
+          <meta-data
+          android:name="io.fabric.ApiKey"
+          android:value="800a1b43c2d95893c1d409db9a45b3147dff174d"
+      />

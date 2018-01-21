@@ -1,16 +1,26 @@
-<ion-header>
+<div class="splash-screen" [style.display]="splash ? 'flex': 'none'" *ngIf="!enNavegador">
+    <div class="cuerpo">
+        <img src="assets/imgs/logo-circulo.png" class="circulo">
+        <img src="assets/imgs/logo-texto.png" class="texto">
+    </div>
+</div>
 
+<ion-header>
     <!-- <ion-navbar>
         <ion-title>login</ion-title>
     </ion-navbar> -->
-
 </ion-header>
 
-
 <ion-content padding>
-    <div class="main-container">
-        <div class="logo-container">
-            <img src="assets/imgs/ionic-logo.png">
+    <!-- <div class="splash-screen" id="splash">
+        <div class="imagenes">
+            <img src="assets/imgs/logo-circulo.png" class="circulo">
+            <img src="assets/imgs/logo-texto.png" class="texto">
+        </div>
+    </div> -->
+    <div class="main-container animated">
+        <div class="logo-container animated fadeIn">
+            <img src="assets/imgs/logo-blanco.png">
         </div>
         <div class="form-container">
             <form #formularioLogin="ngForm" class="" novalidate>
@@ -46,7 +56,7 @@
                         <ion-col col-6>
                             <ion-item>
                                 <ion-label>RECUERDAME</ion-label>
-                                <ion-checkbox color="morado" checked="true"></ion-checkbox>
+                                <ion-checkbox color="morado" name="recordarme" [(ngModel)]="recordarme"></ion-checkbox>
                             </ion-item>
                         </ion-col>
                         <ion-col col-6>
@@ -54,9 +64,12 @@
                         </ion-col>
                     </ion-row>
                 </ion-grid>
-                <button class="button-primary" ion-button block color="primary" [disabled]="!formularioLogin.form.valid" (click)="realizarLoginNormal()">
-                        <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>
-                        <span>ENTRAR</span>
+                <button class="button-primary" ion-button block color="primary" [disabled]="!formularioLogin.form.valid" (click)="realizarLoginNormal()" [ngClass]="{'button-login': usuarioApp.permiteHuella}">
+                  <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>
+                  <span>ENTRAR</span>
+                </button>
+                <button class="button-primary button-circle" ion-button block color="primary" (click)="realizarLoginHuellaDigital(usuarioApp)" *ngIf="usuarioApp.permiteHuella">
+                  <ion-icon ios="ios-finger-print" md="md-finger-print"></ion-icon>
                 </button>
             </form>
         </div>
@@ -70,20 +83,26 @@
                         <ion-icon name="logo-facebook" (click)="realizarLoginFacebook()"></ion-icon>
                     </ion-col> -->
                     <ion-col col-6>
-                        <ion-icon ios="ios-person-add" md="md-person-add" (click)="abriModalRegstro()"></ion-icon>
+                        <ion-icon ios="ios-person-add" md="md-person-add" (click)="abrirModalRegistro()"></ion-icon>
                     </ion-col>
                     <ion-col col-6>
                         <ion-fab>
                             <button ion-fab><ion-icon name="add"></ion-icon></button>
                             <ion-fab-list side="left">
-                                <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-                                <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-                                <button ion-fab><ion-icon name="logo-google"></ion-icon></button>
+                                <button ion-fab><ion-icon name="logo-facebook" (click)="realizarLoginFacebook()"></ion-icon></button>
+                                <button ion-fab><ion-icon name="logo-twitter" (click)="realizarLoginTwitter()"></ion-icon></button>
+                                <button ion-fab><ion-icon name="logo-google" (click)="realizarLoginGoogle()"></ion-icon></button>
                             </ion-fab-list>
                         </ion-fab>
                     </ion-col>
                 </ion-row>
             </ion-grid>
         </div>
+        <!-- <button class="button-primary" ion-button block color="primary" (click)="realizarLoginHuellaDigital(usuarioApp)" *ngIf="usuarioApp.permiteHuella">
+          <ion-icon ios="ios-finger-print" md="md-finger-print"></ion-icon>
+          <span>ACCEDER CON HUELLA</span>
+        </button> -->
+
     </div>
+
 </ion-content>

@@ -1,0 +1,49 @@
+page-registro-usuario {
+    .scroll-content {
+        background: #62278d;
+        background: -moz-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: -webkit-gradient( linear, left top, left bottom, color-stop(0%, #62278d), color-stop(100%, #2cc09b));
+        background: -webkit-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: -o-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: -ms-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: linear-gradient(to bottom, #62278d 0%, #2cc09b 100%);
+        color: #fff;
+    }
+    .content-container {
+        padding-top: 0px !important;
+    }
+    .content-container .text-container {
+        padding-top: 5px !important;
+    }
+    .form-container .personal-information {
+        margin-top: -15px !important;
+    }
+    .form-container .account-information {
+        margin-top: 20px !important;
+    }
+    .form-container .input-wrapper ion-label {
+        width: 105px;
+        max-width: 105px;
+        white-space: normal;
+        max-height: 40px;
+    }
+    .form-container input {
+        padding: 0px !important;
+    }
+    .form-container ion-list {
+        margin-bottom: 35px;
+    }
+    ion-label {
+        font-size: 14px !important;
+    }
+    input {
+        font-size: 15px !important;
+    }
+}
+
+.modal-wrapper {
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}

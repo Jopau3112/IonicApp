@@ -1,0 +1,128 @@
+page-elegir-fecha {
+    ion-content,
+    .scroll-content {
+        background-color: rgba(0, 0, 0, 0.2) !important;
+    }
+    .modal-fecha {
+        height: 100%;
+        width: 100%;
+    }
+    .modal-fecha .title {
+        width: 100%;
+        text-align: center;
+        color: #62278d;
+        height: 15px;
+        font-weight: bold;
+        font-size: 16px !important;
+        font-family: Lato, Sans-serif;
+    }
+    .modal-fecha .title.height25 {
+        height: 25px;
+    }
+    .modal-fecha .cabecera {
+        width: 100%;
+        height: 10%;
+        position: relative;
+        padding: 2px 20px;
+    }
+    .modal-fecha .cabecera ion-icon {
+        font-size: 27px !important;
+        color: #3eab9e;
+    }
+    .modal-fecha .cabecera ion-icon.disabled {
+        color: #b9b4b4 !important;
+    }
+    .modal-fecha .cabecera .arrow-left {
+        position: absolute;
+        left: 1px;
+        top: 3px;
+    }
+    .modal-fecha .cabecera .arrow-right {
+        position: absolute;
+        right: 1px;
+        top: 3px;
+    }
+    .modal-fecha .cabecera .selects {
+        height: 90%;
+        position: relative;
+    }
+    .modal-fecha .cabecera .selects select {
+        border: 1.3px solid #62278d;
+        color: #000;
+        height: 25px;
+        font-weight: bold;
+        font-size: 15px !important;
+        font-family: Lato, Sans-serif;
+        border-radius: 0px;
+    }
+    .modal-fecha .cabecera .selects #select-mes {
+        width: 60%;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        text-align: left;
+    }
+    .modal-fecha .cabecera .selects #select-anio {
+        width: 35%;
+        position: absolute;
+        right: 0;
+        top: 2px;
+        text-align: right;
+    }
+    .modal-fecha .cuerpo {
+        width: 100%;
+        height: 90%;
+    }
+    .modal-fecha .cuerpo button {
+        width: 100%;
+        height: 40px;
+        background-color: #3eab9e;
+        color: #fff;
+        font-weight: bold;
+        font-size: 17px !important;
+        margin-top: 8px;
+        font-family: Lato, Sans-serif;
+    }
+    // .modal-fecha .cuerpo button:disabled {
+    //     color: #3eab9e;
+    //     background-color: #fff;
+    //     border: 2px solid #3eab9e;
+    // }
+    .modal-fecha .cuerpo .grid {
+        padding: 2px !important;
+    }
+    .modal-fecha .grid .fila-title-dias .col {
+        text-align: center;
+        color: #62278d;
+        font-family: Lato, Sans-serif;
+        font-weight: bold;
+    }
+    .modal-fecha .grid .fila-dias .col {
+        text-align: center;
+        color: #000;
+        height: 31px !important;
+        padding: 5px;
+        font-size: 15px !important;
+        font-family: Lato, Sans-serif;
+    }
+    .modal-fecha .grid .fila-dias .col.dia-selected {
+        background-color: #62278d !important;
+        color: #fff;
+        width: 100%;
+        border-radius: 50%;
+    }
+    .modal-fecha .grid .fila-dias .col.dia-not-available {
+        background-color: #fff !important;
+        color: rgb(187, 185, 185);
+        width: 100%;
+        border-radius: 50%;
+    }
+    select {
+        background-color: #fff !important;
+    }
+}
+
+.modal-wrapper {
+    background-color: transparent !important;
+    // transform: none !important; // transform: translateY(0px);
+}
