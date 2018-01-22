@@ -9,6 +9,7 @@ PLUGINS
     - https://ionicthemes.com/tutorials/about/ionic2-twitter-login
     - https://javebratt.com/ionic-twitter-login/
     - https://devdactic.com/ionic-twitter-integration/
+    ionic cordova plugin add https://github.com/chroa/twitter-connect-plugin --variable FABRIC_KEY=800a1b43c2d95893c1d409db9a45b3147dff174d --variable TWITTER_KEY=0P5Aw2cxlA5vPvL1U8mcuRv8D --variable TWITTER_SECRET=3AQZo134Dusx8IbsKKCxt405gp3ITZpe09ANyXFzxgTRWEPV7g
 
 3. PLUGIN FACEBOOK LOGIN (Facebook)
     - https://github.com/jeduan/cordova-plugin-facebook4
@@ -19,6 +20,9 @@ PLUGINS
 4. PLUGIN GOOGLE LOGIN (Google Plus)
     - https://github.com/EddyVerbruggen/cordova-plugin-googleplus
     - https://ionicthemes.com/tutorials/about/ionic2-google-login
-
-    648287590958-jr349l3founp568r0vi2rbqshuqmrgea.apps.googleusercontent.com
     ionic plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID=648287590958-jr349l3founp568r0vi2rbqshuqmrgea.apps.googleusercontent.com
+
+
+https://angularfirebase.com/snippets/router-transition-animations-with-angular-4/
+https://alligator.io/angular/animation-angular/
+http://jasonwatmore.com/post/2017/04/19/angular-2-4-router-animation-tutorial-example

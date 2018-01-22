@@ -1,52 +1,55 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 import {
-  IonicPage, NavController, NavParams, App, Platform, AlertController, ToastController,
-  MenuController, MenuToggle
+  IonicPage,
+  NavController,
+  NavParams,
+  App,
+  Platform,
+  AlertController,
+  ToastController,
+  MenuController
 } from "ionic-angular";
-import {AndroidFingerprintAuth} from "@ionic-native/android-fingerprint-auth";
-import {TwitterConnect} from '@ionic-native/twitter-connect';
-import {Facebook, FacebookLoginResponse} from '@ionic-native/facebook';
-import {GooglePlus} from '@ionic-native/google-plus';
+import { AndroidFingerprintAuth } from "@ionic-native/android-fingerprint-auth";
+import { TwitterConnect } from "@ionic-native/twitter-connect";
+import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook";
+import { GooglePlus } from "@ionic-native/google-plus";
 
-import {FuncionesAuxiliares} from "../../globals/functions.globals";
-import {trigger, state, animate, transition, style} from '@angular/animations';
+import { FuncionesAuxiliares } from "../../globals/functions.globals";
+import {
+  trigger,
+  state,
+  animate,
+  transition,
+  style,
+  query
+} from "@angular/animations";
 
 @IonicPage({
   name: "mi-menu-principal"
 })
 @Component({
   selector: "page-menu-principal",
-  templateUrl: "menu-principal.html",
-  animations: [
-    trigger('myTriggerName', [
-      state('on', style({opacity: 1})),
-      state('off', style({opacity: 0})),
-      transition('on => off', [
-        animate("1s")
-      ])
-    ])
-  ]
-
+  templateUrl: "menu-principal.html"
 })
-
-
 export class MenuPrincipalPage {
   usuarioLogado: any;
-  modoEntrada: number;  //(0:Normal  1:Huella  2:Google  3:Facebook  4:Twitter)
+  modoEntrada: number; //(0:Normal  1:Huella  2:Google  3:Facebook  4:Twitter)
 
   fa = new FuncionesAuxiliares();
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public appCtrl: App,
-              private platform: Platform,
-              private alertCtrl: AlertController,
-              private toastCtrl: ToastController,
-              public menuCtrl: MenuController,
-              private afa: AndroidFingerprintAuth,
-              private twitter: TwitterConnect,
-              private facebook: Facebook,
-              private google: GooglePlus) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public appCtrl: App,
+    private platform: Platform,
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController,
+    public menuCtrl: MenuController,
+    private afa: AndroidFingerprintAuth,
+    private twitter: TwitterConnect,
+    private facebook: Facebook,
+    private google: GooglePlus
+  ) {
     //Recogemos parametros
     this.usuarioLogado = this.navParams.get("usuario");
     this.modoEntrada = this.navParams.get("modo");
@@ -65,12 +68,11 @@ export class MenuPrincipalPage {
           console.log("Usuario con huella registrada");
         }
       }
-
     }
   }
 
   ionViewDidLoad() {
-    this.menuCtrl.swipeEnable(true, 'menuIzquierda');
+    this.menuCtrl.swipeEnable(true, "menuIzquierda");
   }
 
   //MOSTRAR INFORMACION HUELLA DIGITAL
@@ -194,23 +196,27 @@ export class MenuPrincipalPage {
 
   realizarLogoutGoogle() {
     console.log("Logout Google");
-    this.google.logout().then((response) => {
-      console.log(response);
-      this.navCtrl.pop();
-    }, (error) => {
-      console.log(error);
-    });
+    this.google.logout().then(
+      response => {
+        console.log(response);
+        this.navCtrl.pop();
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   realizarLogoutFacebook() {
     console.log("Logout Facebook");
     if (this.platform.is("cordova")) {
-      this.facebook.logout()
+      this.facebook
+        .logout()
         .then((res: FacebookLoginResponse) => {
           console.log(res);
           this.navCtrl.pop();
         })
-        .catch(e => console.log('Error logging into Facebook', e));
+        .catch(e => console.log("Error logging into Facebook", e));
       // this.facebook.logEvent(this.facebook.EVENTS.EVENT_NAME_ADDED_TO_CART);
     }
   }
@@ -218,14 +224,16 @@ export class MenuPrincipalPage {
   realizarLogoutTwitter() {
     console.log("Logout Twitter");
     if (this.platform.is("cordova")) {
-      this.twitter.logout().then((response) => {
-        console.log(response);
-        this.navCtrl.pop();
-      }, (error) => {
-        console.log(error);
-      });
+      this.twitter.logout().then(
+        response => {
+          console.log(response);
+          this.navCtrl.pop();
+        },
+        error => {
+          console.log(error);
+        }
+      );
     }
-
   }
 
   /*********************************************************************************************************/

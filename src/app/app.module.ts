@@ -1,17 +1,18 @@
-import {BrowserModule} from "@angular/platform-browser";
-import {ErrorHandler, NgModule} from "@angular/core";
-import {IonicApp, IonicErrorHandler, IonicModule} from "ionic-angular";
+import { BrowserModule } from "@angular/platform-browser";
+import { ErrorHandler, NgModule } from "@angular/core";
+import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 
-import {SplashScreen} from "@ionic-native/splash-screen";
-import {StatusBar} from "@ionic-native/status-bar";
-import {AndroidFingerprintAuth} from "@ionic-native/android-fingerprint-auth";
-import {TwitterConnect} from '@ionic-native/twitter-connect';
-import {Facebook} from '@ionic-native/facebook';
-import {GooglePlus} from "@ionic-native/google-plus";
+import { SplashScreen } from "@ionic-native/splash-screen";
+import { StatusBar } from "@ionic-native/status-bar";
+import { AndroidFingerprintAuth } from "@ionic-native/android-fingerprint-auth";
+import { TwitterConnect } from "@ionic-native/twitter-connect";
+import { Facebook } from "@ionic-native/facebook";
+import { GooglePlus } from "@ionic-native/google-plus";
 
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import {Config} from "ionic-angular";
+import { Config } from "ionic-angular";
 import {
   ModalScaleUpEnterTransition,
   ModalScaleUpLeaveTransition,
@@ -21,8 +22,8 @@ import {
   ModalSlideRightLeaveTransition
 } from "../transitions/index.transition";
 
-import {MyApp} from "./app.component";
-import {RootScopeService} from "../providers/root-scope/root-scope";
+import { MyApp } from "./app.component";
+import { RootScopeService } from "../providers/root-scope/root-scope";
 
 @NgModule({
   declarations: [MyApp],
@@ -30,6 +31,7 @@ import {RootScopeService} from "../providers/root-scope/root-scope";
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot(MyApp)
     //IonicModule.forRoot(MyApp, { animate: false })  Quitar animaciones
   ],
@@ -42,7 +44,7 @@ import {RootScopeService} from "../providers/root-scope/root-scope";
     TwitterConnect,
     Facebook,
     GooglePlus,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     RootScopeService
   ]
 })
