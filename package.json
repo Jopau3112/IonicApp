@@ -23,6 +23,8 @@
     "@ionic-native/android-fingerprint-auth": "^4.5.2",
     "@ionic-native/core": "4.4.0",
     "@ionic-native/email-composer": "^4.5.2",
+    "@ionic-native/facebook": "^4.5.2",
+    "@ionic-native/google-plus": "^4.5.2",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",
     "@ionic-native/twitter-connect": "^4.5.2",
@@ -31,6 +33,8 @@
     "cordova-plugin-android-fingerprint-auth": "^1.4.1",
     "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-email-composer": "^0.8.12",
+    "cordova-plugin-facebook4": "^1.9.1",
+    "cordova-plugin-googleplus": "^5.2.1",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-whitelist": "^1.3.3",
@@ -62,6 +66,13 @@
         "FABRIC_KEY": "800a1b43c2d95893c1d409db9a45b3147dff174d",
         "TWITTER_KEY": "0P5Aw2cxlA5vPvL1U8mcuRv8D",
         "TWITTER_SECRET": "3AQZo134Dusx8IbsKKCxt405gp3ITZpe09ANyXFzxgTRWEPV7g"
+      },
+      "cordova-plugin-facebook4": {
+        "APP_ID": "198304457389743",
+        "APP_NAME": "IonicAppJoel"
+      },
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "648287590958-jr349l3founp568r0vi2rbqshuqmrgea.apps.googleusercontent.com"
       }
     },
     "platforms": [

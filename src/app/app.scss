@@ -1,444 +1,485 @@
 // http://ionicframework.com/docs/theming/
 // App Global Sass
 // --------------------------------------------------
-body {}
+body {
+}
 
 ion-content {
-    margin: 0px !important;
-    padding: 0px !important;
-    width: 100% !important;
-    height: 100% !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .scroll-content {
-    padding: 0px !important;
-    background-color: white !important;
-    width: 100% !important;
-    height: 100% !important;
+  padding: 0px !important;
+  background-color: white !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .main-container {
-    margin: 0px;
-    padding: 30px !important;
-    width: 100% !important;
-    height: 100% !important;
+  margin: 0px;
+  padding: 30px !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .background-primary {
-    background: #62278d;
-    background: -moz-linear-gradient(top, #62278d 0%, #2cc09b 100%);
-    background: -webkit-gradient( linear, left top, left bottom, color-stop(0%, #62278d), color-stop(100%, #2cc09b));
-    background: -webkit-linear-gradient(top, #62278d 0%, #2cc09b 100%);
-    background: -o-linear-gradient(top, #62278d 0%, #2cc09b 100%);
-    background: -ms-linear-gradient(top, #62278d 0%, #2cc09b 100%);
-    background: linear-gradient(to bottom, #62278d 0%, #2cc09b 100%);
-    color: #fff;
+  background: #62278d;
+  background: -moz-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #62278d), color-stop(100%, #2cc09b));
+  background: -webkit-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+  background: -o-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+  background: -ms-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+  background: linear-gradient(to bottom, #62278d 0%, #2cc09b 100%);
+  color: #fff;
 }
 
 .content-container {
-    position: absolute;
-    top: 9%;
-    width: 100%;
-    height: 91%;
-    left: 0;
-    padding: 30px !important;
+  position: absolute;
+  top: 9%;
+  width: 100%;
+  height: 91%;
+  left: 0;
+  padding: 30px !important;
 }
 
 .content-container .text-container .title {
-    font-family: Lato, Sans-serif;
-    font-weight: bold;
-    font-size: 20px;
+  font-family: Lato, Sans-serif;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .content-container .text-container .body {
-    font-family: Lato, Sans-serif;
-    font-weight: bold;
-    font-size: 15px;
+  font-family: Lato, Sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.no-border {
+  border: none !important;
 }
 
 //SPLASHSCREEN PERSONALIZADO
 .splash-screen {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    background-color: #fff;
-    transition: all 2s linear;
-    display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+  transition: all 2s linear;
+  display: block;
 }
 
 .fadeout {
-    -webkit-animation: fadeinout 4s linear forwards !important;
-    animation: fadeinout 4s linear forwards !important;
-    opacity: 0 !important;
+  -webkit-animation: fadeinout 4s linear forwards !important;
+  animation: fadeinout 4s linear forwards !important;
+  opacity: 0 !important;
 }
 
 @keyframes fadeinout {
-    50% {
-        opacity: 1;
-    }
-    99% {
-        opacity: 0;
-        height: 100%;
-    }
-    100% {
-        height: 0px;
-    }
+  50% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    height: 100%;
+  }
+  100% {
+    height: 0px;
+  }
 }
 
 .splash-screen .imagenes {
-    width: 35%;
-    margin: 45% auto;
+  width: 35%;
+  margin: 45% auto;
 }
 
 //NAVBAR
 .nav-bar-transparent .toolbar-background {
-    background: transparent !important;
-    background-color: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 .header-container {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    left: 0;
-    height: 9%;
-    padding: 5px !important;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 9%;
+  padding: 5px !important;
 }
 
 .header-container button {
-    border: 0px;
-    outline: none;
-    box-shadow: none;
-    color: #2cc09b;
-    background-color: transparent;
-    font-weight: bold;
-    font-size: 14px;
-    font-family: Lato, Sans-serif;
-    text-align: right;
-    padding: 0px;
+  border: 0px;
+  outline: none;
+  box-shadow: none;
+  color: #2cc09b;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: Lato, Sans-serif;
+  text-align: right;
+  padding: 0px;
 }
 
 .header-container button.activated,
 .header-container button:hover {
-    color: #2cc09b;
-    background-color: transparent !important;
-    box-shadow: none;
+  color: #2cc09b;
+  background-color: transparent !important;
+  box-shadow: none;
 }
 
 .header-container .button-left {
-    position: absolute;
-    left: 15px;
+  position: absolute;
+  left: 15px;
 }
 
 .header-container .button-right {
-    position: absolute;
-    right: 15px;
+  position: absolute;
+  right: 15px;
 }
 
 //BOTONES
 .button-primary {
-    border-radius: 20px;
-    border: 1.3px solid #fff;
-    height: 45px;
-    background-color: #62278d;
-    margin-top: 20px;
+  border-radius: 20px;
+  border: 1.3px solid #fff;
+  height: 45px;
+  background-color: #62278d;
+  margin-top: 20px;
 }
 
 .button-primary ion-icon {
-    margin-right: 8px;
-    font-size: 28px;
+  margin-right: 8px;
+  font-size: 28px;
 }
 
 .button-primary span {
-    color: #3eab9e;
-    font-size: 17px;
-    font-family: Lato, Sans-serif;
-    font-weight: bold;
+  color: #2cc09b;
+  font-size: 17px;
+  font-family: Lato, Sans-serif;
+  font-weight: bold;
 }
 
 .button-primary:disabled {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 .button-primary:disabled span {
-    color: #fff !important;
+  color: #fff !important;
 }
 
 .button-primary:hover,
 .button-primary.activated {
-    background-color: #68568b;
-    margin-top: 20px;
+  background-color: #68568b;
+  margin-top: 20px;
 }
 
 //FORMULARIOS
 .form-container {
-    margin-top: 5px;
-    margin-bottom: 30px;
-    text-align: center;
-    width: 100%;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
 }
 
 .form-container ion-list ion-item {
-    background-color: transparent;
-    padding: 0px !important;
+  background-color: transparent;
+  padding: 0px !important;
 }
 
 .form-container ion-list .alert-danger {
-    color: rgb(173, 31, 31) !important;
+  color: rgb(173, 31, 31) !important;
 }
 
 .form-container .item-inner {
-    border-bottom: 1px solid #62278d !important;
+  border-bottom: 1px solid #62278d !important;
 }
 
 .form-container .item-input:last-child {
-    border-bottom: 0px;
+  border-bottom: 0px;
 }
 
 .form-container .input-wrapper ion-label {
-    font-weight: bold;
-    font-size: 15px;
-    color: #fff;
-    font-family: Lato, Sans-serif;
-    position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  color: #fff;
+  font-family: Lato, Sans-serif;
+  position: relative;
 }
 
 .form-container .input-has-value .input-wrapper ion-label,
 .form-container .input-has-focus .input-wrapper ion-label {
-    color: #3eab9e;
+  color: #2cc09b;
 }
 
 .form-container .input-has-focus .item-inner {
-    border-bottom: 1px solid #62278d !important;
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
+  border-bottom: 1px solid #62278d !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
 
 .form-container .input-has-focus .item-input:last-child {
-    border-bottom: 0px !important;
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
+  border-bottom: 0px !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
 
 .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
 .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-    border-bottom: 1px solid #62278d !important;
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
+  border-bottom: 1px solid #62278d !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
 
 .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-    border-bottom: 1px solid #62278d !important;
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
+  border-bottom: 1px solid #62278d !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
 
 .form-container input {
-    font-weight: bold;
-    font-size: 17px;
-    color: #fff;
-    padding-right: 20px;
-    font-family: Lato, Sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  color: #fff;
+  padding-right: 20px;
+  font-family: Lato, Sans-serif;
 }
 
 .form-container #password {
-    -webkit-text-security: disc;
+  -webkit-text-security: disc;
 }
 
 .form-container ion-list {
-    position: relative;
+  position: relative;
 }
 
 .form-container .icon-eye {
-    position: absolute;
-    right: 0;
-    bottom: 5px;
+  position: absolute;
+  right: 0;
+  bottom: 5px;
 }
 
 .form-container .icon-eye::before {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 .form-container .grid {
-    width: 100%;
-    padding: 0px !important;
+  width: 100%;
+  padding: 0px !important;
 }
 
 .form-container .grid .col:first-child {
-    padding: 0px !important;
-    text-align: left;
-    height: 35px;
+  padding: 0px !important;
+  text-align: left;
+  height: 35px;
 }
 
 .form-container .grid .col:last-child {
-    padding: 0px !important;
-    text-align: right;
-    height: 35px;
+  padding: 0px !important;
+  text-align: right;
+  height: 35px;
 }
 
 .form-container .grid .col span {
-    font-size: 13px;
-    font-family: Lato, Sans-serif;
-    font-weight: bold;
-    color: #62278d;
+  font-size: 13px;
+  font-family: Lato, Sans-serif;
+  font-weight: bold;
+  color: #62278d;
 }
 
 //CHECKBOX
 .form-container .item-checkbox {
-    background-color: transparent;
-    padding: 0px !important;
-    position: absolute;
-    top: 5px;
-    min-height: 5px !important;
-    height: 20px;
+  background-color: transparent;
+  padding: 0px !important;
+  position: absolute;
+  top: 5px;
+  min-height: 5px !important;
+  height: 20px;
 }
 
 .form-container .item-checkbox ion-checkbox {
-    margin: 0px 5px 0px 0px !important;
+  margin: 0px 5px 0px 0px !important;
 }
 
 .form-container .item-checkbox ion-checkbox .checkbox-icon {
-    border-color: #62278d;
+  border-color: #62278d;
 }
 
 .form-container .item-checkbox button {
-    padding: 0px !important;
+  padding: 0px !important;
 }
 
 .form-container .item-checkbox button {
-    padding: 0px !important;
+  padding: 0px !important;
 }
 
 .form-container .item-checkbox .item-inner {
-    border-bottom: none !important;
+  border-bottom: none !important;
 }
 
 .form-container .item-checkbox .item-inner ion-label {
-    font-size: 13px;
-    color: #62278d;
+  font-size: 13px;
+  color: #62278d;
 }
 
 //ALERTAS
 ion-alert .alert-title {
-    font-weight: bold;
-    font-size: 18px !important;
-    color: #62278d;
-    font-family: Lato, Sans-serif;
-    text-align: center;
+  font-weight: bold;
+  font-size: 18px !important;
+  color: #62278d;
+  font-family: Lato, Sans-serif;
+  text-align: center;
 }
 
 ion-alert .alert-sub-title {
-    font-size: 16px !important;
-    font-family: Lato, Sans-serif;
-    margin-top: 16px;
-    text-align: justify !important;
+  font-size: 16px !important;
+  font-family: Lato, Sans-serif;
+  margin-top: 16px;
+  text-align: justify !important;
 }
 
 ion-alert .alert-message {
-    font-size: 16px !important;
-    text-align: justify !important;
+  font-size: 16px !important;
+  text-align: justify !important;
 }
 
 ion-alert .alert-message .img-container,
 ion-alert .alert-sub-title .img-container {
-    display: block;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 5px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 5px;
 }
 
 ion-alert .alert-button-group button span {
-    font-weight: bold;
-    font-size: 16px !important;
-    color: #3eab9e;
-    font-family: Lato, Sans-serif;
+  font-weight: bold;
+  font-size: 16px !important;
+  color: #2cc09b;
+  font-family: Lato, Sans-serif;
 }
 
 //MODALS
 .modal-wrapper {
-    -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5) !important;
-    -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5) !important;
-    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5) !important;
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5) !important;
+  -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5) !important;
 }
 
 .modal50-container {
-    margin: 28% auto !important;
-    width: 260px !important;
-    height: 370px !important;
-    background-color: #fff;
-    position: relative;
-    padding: 15px;
+  margin: 28% auto !important;
+  width: 260px !important;
+  height: 370px !important;
+  background-color: #fff;
+  position: relative;
+  padding: 15px;
 }
 
 .modal50-button-close {
-    position: absolute; // color: #62278d;
-    color: #3eab9e;
-    font-size: 50px;
-    top: -28px;
-    right: -24px;
-    padding: 3px 10px !important;
+  position: absolute; // color: #62278d;
+  color: #2cc09b;
+  font-size: 50px;
+  top: -28px;
+  right: -24px;
+  padding: 3px 10px !important;
 }
 
 //TOAST
 ion-toast .toast-wrapper {
-    background-color: transparent !important;
-    width: 100%;
-    text-align: center !important;
+  background-color: transparent !important;
+  width: 100%;
+  text-align: center !important;
 }
 
 ion-toast .toast-container {
-    background: linear-gradient( to right, #5b367a 0%, #a78abd 100%, #8a4bbb 51%, #8a4bbb 71%, #a78abd 100%);
-    border-radius: 15px;
-    margin: 0px auto;
-    width: 70%;
-    padding: 10px 10px 12px 10px !important;
+  background: linear-gradient(to right, #5b367a 0%, #a78abd 100%, #8a4bbb 51%, #8a4bbb 71%, #a78abd 100%);
+  border-radius: 15px;
+  margin: 0px auto;
+  width: 70%;
+  padding: 10px 10px 12px 10px !important;
 }
 
 ion-toast .toast-message {
-    text-align: center;
-    font-weight: bold;
-    padding: 0px !important;
-    color: #fff !important;
-    font-size: 14px !important;
-    font-family: Lato, Sans-serif;
+  text-align: center;
+  font-weight: bold;
+  padding: 0px !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  font-family: Lato, Sans-serif;
+}
+
+//LOADING
+ion-loading .loading-spinner ion-spinner svg * {
+  stroke: #2cc09b !important;
+  stroke-width: 5px !important;
+}
+
+ion-loading .loading-content {
+  font-weight: bold;
+  font-size: 17px !important;
+  color: #62278d;
+  font-family: Lato, Sans-serif;
+  text-align: center;
 }
 
 //ANIMACIONES
 .animated {
-    -webkit-animation-duration: 1s !important;
-    animation-duration: 1s !important;
-    -webkit-animation-fill-mode: both !important;
-    animation-fill-mode: both !important;
+  -webkit-animation-duration: 1s !important;
+  animation-duration: 1s !important;
+  -webkit-animation-fill-mode: both !important;
+  animation-fill-mode: both !important;
 }
 
 @-webkit-keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
-.hidden {
-    display: none;
-    opacity: 0;
+ion-buttons {
+  order: 1
 }
+
+//TOOLBAR
+ion-toolbar {
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 100%;
+}
+
+.ion-toolbar-transparent .toolbar-background {
+  background: transparent !important;
+}
+
+.content-toolbar {
+  margin-top: 56px !important;
+}
+

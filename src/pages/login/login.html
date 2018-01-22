@@ -1,108 +1,123 @@
 <div class="splash-screen" [style.display]="splash ? 'flex': 'none'" *ngIf="!enNavegador">
-    <div class="cuerpo">
-        <img src="assets/imgs/logo-circulo.png" class="circulo">
-        <img src="assets/imgs/logo-texto.png" class="texto">
-    </div>
+  <div class="cuerpo">
+    <img src="assets/imgs/logo-circulo.png" class="circulo">
+    <img src="assets/imgs/logo-texto.png" class="texto">
+  </div>
 </div>
 
 <ion-header>
-    <!-- <ion-navbar>
-        <ion-title>login</ion-title>
-    </ion-navbar> -->
+  <!-- <ion-navbar>
+      <ion-title>login</ion-title>
+  </ion-navbar> -->
 </ion-header>
 
 <ion-content padding>
-    <!-- <div class="splash-screen" id="splash">
-        <div class="imagenes">
-            <img src="assets/imgs/logo-circulo.png" class="circulo">
-            <img src="assets/imgs/logo-texto.png" class="texto">
-        </div>
-    </div> -->
-    <div class="main-container animated">
-        <div class="logo-container animated fadeIn">
-            <img src="assets/imgs/logo-blanco.png">
-        </div>
-        <div class="form-container">
-            <form #formularioLogin="ngForm" class="" novalidate>
-                <ion-list>
-                    <ion-item class="form-group">
-                        <ion-label floating>
-                            <!-- <ion-icon ios="ios-person" md="md-person"></ion-icon> -->
-                            <span>USUARIO</span>
-                        </ion-label>
-                        <ion-input type="text" class="form-control" id="username" name="username" [(ngModel)]="usuario.username" #username="ngModel" required></ion-input>
-                    </ion-item>
-                    <!-- <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
-                        <p [hidden]="!username.hasError('required')">Username es requirido.</p>
-                        <p [hidden]="!username.hasError('minlength')">Mínimo 4 caracteres.</p>
-                    </div>
-                     -->
-                    <ion-item class="form-group">
-                        <ion-label floating>
-                            <!-- <ion-icon ios="ios-key" md="md-key"></ion-icon> -->
-                            <span>CONTRASEÑA</span>
-                        </ion-label>
-                        <ion-input type="text" class="form-control" id="password" name="password" [(ngModel)]="usuario.password" #password="ngModel" required></ion-input>
-                    </ion-item>
-                    <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-                        <p [hidden]="!password.hasError('required')">Password es requirido.</p>
-                        <p [hidden]="!password.hasError('minlength')">Mínimo 4 caracteres.</p>
-                    </div> -->
-                    <ion-icon class="icon-eye" name="eye" (click)="mostrarOcultarPassword()" *ngIf="passwordOculto && usuario.password"></ion-icon>
-                    <ion-icon class="icon-eye" name="eye-off" (click)="mostrarOcultarPassword()" *ngIf="!passwordOculto && usuario.password"></ion-icon>
-                </ion-list>
-                <ion-grid>
-                    <ion-row>
-                        <ion-col col-6>
-                            <ion-item>
-                                <ion-label>RECUERDAME</ion-label>
-                                <ion-checkbox color="morado" name="recordarme" [(ngModel)]="recordarme"></ion-checkbox>
-                            </ion-item>
-                        </ion-col>
-                        <ion-col col-6>
-                            <span class="recuperar" (click)="abrirModalRecuperar()">RECUPERAR CONTRASEÑA</span>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-                <button class="button-primary" ion-button block color="primary" [disabled]="!formularioLogin.form.valid" (click)="realizarLoginNormal()" [ngClass]="{'button-login': usuarioApp.permiteHuella}">
-                  <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>
-                  <span>ENTRAR</span>
-                </button>
-                <button class="button-primary button-circle" ion-button block color="primary" (click)="realizarLoginHuellaDigital(usuarioApp)" *ngIf="usuarioApp.permiteHuella">
-                  <ion-icon ios="ios-finger-print" md="md-finger-print"></ion-icon>
-                </button>
-            </form>
-        </div>
-        <div class="buttons-container">
-            <ion-grid>
-                <ion-row>
-                    <!-- <ion-col col-3>
-                        <ion-icon name="logo-google" (click)="realizarLoginGoogle()"></ion-icon>
-                    </ion-col>
-                    <ion-col col-3>
-                        <ion-icon name="logo-facebook" (click)="realizarLoginFacebook()"></ion-icon>
-                    </ion-col> -->
-                    <ion-col col-6>
-                        <ion-icon ios="ios-person-add" md="md-person-add" (click)="abrirModalRegistro()"></ion-icon>
-                    </ion-col>
-                    <ion-col col-6>
-                        <ion-fab>
-                            <button ion-fab><ion-icon name="add"></ion-icon></button>
-                            <ion-fab-list side="left">
-                                <button ion-fab><ion-icon name="logo-facebook" (click)="realizarLoginFacebook()"></ion-icon></button>
-                                <button ion-fab><ion-icon name="logo-twitter" (click)="realizarLoginTwitter()"></ion-icon></button>
-                                <button ion-fab><ion-icon name="logo-google" (click)="realizarLoginGoogle()"></ion-icon></button>
-                            </ion-fab-list>
-                        </ion-fab>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </div>
-        <!-- <button class="button-primary" ion-button block color="primary" (click)="realizarLoginHuellaDigital(usuarioApp)" *ngIf="usuarioApp.permiteHuella">
-          <ion-icon ios="ios-finger-print" md="md-finger-print"></ion-icon>
-          <span>ACCEDER CON HUELLA</span>
-        </button> -->
-
+  <!-- <div class="splash-screen" id="splash">
+      <div class="imagenes">
+          <img src="assets/imgs/logo-circulo.png" class="circulo">
+          <img src="assets/imgs/logo-texto.png" class="texto">
+      </div>
+  </div> -->
+  <div class="main-container animated">
+    <div class="logo-container animated fadeIn">
+      <img src="assets/imgs/logo-blanco.png">
     </div>
+    <div class="form-container">
+      <form #formularioLogin="ngForm" class="" novalidate>
+        <ion-list>
+          <ion-item class="form-group">
+            <ion-label floating>
+              <!-- <ion-icon ios="ios-person" md="md-person"></ion-icon> -->
+              <span>USUARIO</span>
+            </ion-label>
+            <ion-input type="text" class="form-control" id="username" name="username" [(ngModel)]="usuario.username"
+                       #username="ngModel" required></ion-input>
+          </ion-item>
+          <!-- <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+              <p [hidden]="!username.hasError('required')">Username es requirido.</p>
+              <p [hidden]="!username.hasError('minlength')">Mínimo 4 caracteres.</p>
+          </div>
+           -->
+          <ion-item class="form-group">
+            <ion-label floating>
+              <!-- <ion-icon ios="ios-key" md="md-key"></ion-icon> -->
+              <span>CONTRASEÑA</span>
+            </ion-label>
+            <ion-input type="text" class="form-control" id="password" name="password" [(ngModel)]="usuario.password"
+                       #password="ngModel" required></ion-input>
+          </ion-item>
+          <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+              <p [hidden]="!password.hasError('required')">Password es requirido.</p>
+              <p [hidden]="!password.hasError('minlength')">Mínimo 4 caracteres.</p>
+          </div> -->
+          <ion-icon class="icon-eye" name="eye" (click)="mostrarOcultarPassword()"
+                    *ngIf="passwordOculto && usuario.password"></ion-icon>
+          <ion-icon class="icon-eye" name="eye-off" (click)="mostrarOcultarPassword()"
+                    *ngIf="!passwordOculto && usuario.password"></ion-icon>
+        </ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <ion-item>
+                <ion-label>RECUERDAME</ion-label>
+                <ion-checkbox color="morado" name="recordarme" [(ngModel)]="recordarme"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+            <ion-col col-6>
+              <span class="recuperar" (click)="abrirModalRecuperar()">RECUPERAR CONTRASEÑA</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button class="button-primary" ion-button block color="primary" [disabled]="!formularioLogin.form.valid"
+                (click)="realizarLoginNormal()" [ngClass]="{'button-login': usuarioApp.permiteHuella}">
+          <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>
+          <span>ENTRAR</span>
+        </button>
+        <button class="button-primary button-circle" ion-button block color="primary"
+                (click)="realizarLoginHuellaDigital(usuarioApp)" *ngIf="usuarioApp.permiteHuella">
+          <ion-icon ios="ios-finger-print" md="md-finger-print"></ion-icon>
+        </button>
+      </form>
+    </div>
+
+    <div class="buttons-container">
+      <ion-grid>
+        <ion-row>
+          <!-- <ion-col col-3>
+              <ion-icon name="logo-google" (click)="realizarLoginGoogle()"></ion-icon>
+          </ion-col>
+          <ion-col col-3>
+              <ion-icon name="logo-facebook" (click)="realizarLoginFacebook()"></ion-icon>
+          </ion-col> -->
+          <ion-col col-6>
+            <ion-icon ios="ios-person-add" md="md-person-add" (click)="abrirModalRegistro()"></ion-icon>
+          </ion-col>
+          <ion-col col-6>
+            <ion-fab>
+              <button ion-fab>
+                <ion-icon name="add"></ion-icon>
+              </button>
+              <ion-fab-list side="left">
+                <button ion-fab (click)="realizarLoginFacebook()">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+                <button ion-fab (click)="realizarLoginTwitter()">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </button>
+                <button ion-fab (click)="realizarLoginGoogle()">
+                  <ion-icon name="logo-google"></ion-icon>
+                </button>
+              </ion-fab-list>
+            </ion-fab>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!-- <button class="button-primary" ion-button block color="primary" (click)="realizarLoginHuellaDigital(usuarioApp)" *ngIf="usuarioApp.permiteHuella">
+      <ion-icon ios="ios-finger-print" md="md-finger-print"></ion-icon>
+      <span>ACCEDER CON HUELLA</span>
+    </button> -->
+
+  </div>
 
 </ion-content>

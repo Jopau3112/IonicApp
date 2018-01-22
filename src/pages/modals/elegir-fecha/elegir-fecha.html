@@ -1,54 +1,57 @@
 <ion-header>
 
-    <!-- <ion-navbar>
-    <ion-title>elegirFecha</ion-title>
-  </ion-navbar> -->
+  <!-- <ion-navbar>
+  <ion-title>elegirFecha</ion-title>
+</ion-navbar> -->
 
 </ion-header>
 
 
 <ion-content padding>
-    <div class="modal50-container">
-        <div class="modal-fecha">
-            <div class="title" [ngClass]="{'height25': diaElegido}">
-                <span *ngIf="diaElegido">{{diaElegido}}</span>
-            </div>
-            <div class="cabecera">
-                <!-- Flechas -->
-                <ion-icon class="arrow-left" name="ios-arrow-back" (click)="irAnteriorMes()" [ngClass]="{'disabled':minimaMesAnio}"></ion-icon>
-                <ion-icon class="arrow-right" name="ios-arrow-forward" (click)="irProximoMes()" [ngClass]="{'disabled':maximaMesAnio}"></ion-icon>
-                <div class="selects">
-                    <!-- Eleccion mes -->
-                    <select id="select-mes" [(ngModel)]="mesElegido" (change)="elegirMesAnio()">
-                      <option  *ngFor="let mes of meses"  value="{{mes.codigo}}">{{mes.nombre}}</option>
-                    </select>
-                    <!-- Eleccion año -->
-                    <select id="select-anio" [(ngModel)]="anioElegido" (change)="elegirMesAnio()">
-                      <option  *ngFor="let anio of anios"  value="{{anio}}">{{anio}}</option>
-                    </select>
-                </div>
-            </div>
-            <div class="cuerpo">
-                <ion-grid>
-                    <ion-row class="fila-title-dias">
-                        <ion-col>L</ion-col>
-                        <ion-col>M</ion-col>
-                        <ion-col>M</ion-col>
-                        <ion-col>J</ion-col>
-                        <ion-col>V</ion-col>
-                        <ion-col>S</ion-col>
-                        <ion-col>D</ion-col>
-                    </ion-row>
-                    <ion-row *ngFor="let dia of dias" class="fila-dias">
-                        <ion-col *ngFor="let elemento of dia" [ngClass]="{'dia-selected': elemento.id==diaElegido, 'dia-not-available': !esDiaHabilitado(elemento.id)}">
-                            <span *ngIf="elemento.numero>0" (click)="elegirDiaCalendario(elemento.id)">{{elemento.numero}}</span>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-                <button (click)="elegirFecha()" [disabled]="!diaElegido">ELEGIR</button>
-            </div>
-            <ion-icon class="modal50-button-close" ios="ios-close" md="md-close" (click)="cerrarModalFecha()"></ion-icon>
+  <div class="modal50-container">
+    <div class="modal-fecha">
+      <div class="title" [ngClass]="{'height25': diaElegido}">
+        <span *ngIf="diaElegido">{{diaElegido}}</span>
+      </div>
+      <div class="cabecera">
+        <!-- Flechas -->
+        <ion-icon class="arrow-left" name="ios-arrow-back" (click)="irAnteriorMes()"
+                  [ngClass]="{'disabled':minimaMesAnio}"></ion-icon>
+        <ion-icon class="arrow-right" name="ios-arrow-forward" (click)="irProximoMes()"
+                  [ngClass]="{'disabled':maximaMesAnio}"></ion-icon>
+        <div class="selects">
+          <!-- Eleccion mes -->
+          <select id="select-mes" [(ngModel)]="mesElegido" (change)="elegirMesAnio()">
+            <option *ngFor="let mes of meses" value="{{mes.codigo}}">{{mes.nombre}}</option>
+          </select>
+          <!-- Eleccion año -->
+          <select id="select-anio" [(ngModel)]="anioElegido" (change)="elegirMesAnio()">
+            <option *ngFor="let anio of anios" value="{{anio}}">{{anio}}</option>
+          </select>
         </div>
+      </div>
+      <div class="cuerpo">
+        <ion-grid>
+          <ion-row class="fila-title-dias">
+            <ion-col>L</ion-col>
+            <ion-col>M</ion-col>
+            <ion-col>M</ion-col>
+            <ion-col>J</ion-col>
+            <ion-col>V</ion-col>
+            <ion-col>S</ion-col>
+            <ion-col>D</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let dia of dias" class="fila-dias">
+            <ion-col *ngFor="let elemento of dia"
+                     [ngClass]="{'dia-selected': elemento.id==diaElegido, 'dia-not-available': !esDiaHabilitado(elemento.id)}">
+              <span *ngIf="elemento.numero>0" (click)="elegirDiaCalendario(elemento.id)">{{elemento.numero}}</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button (click)="elegirFecha()" [disabled]="!diaElegido">ELEGIR</button>
+      </div>
+      <ion-icon class="modal50-button-close" ios="ios-close" md="md-close" (click)="cerrarModalFecha()"></ion-icon>
     </div>
+  </div>
 
 </ion-content>

@@ -1,12 +1,29 @@
 <ion-header>
+  <ion-navbar hideBackButton="true">
 
-    <ion-navbar>
-        <ion-title>menuPrincipal</ion-title>
-    </ion-navbar>
+  </ion-navbar>
 
+  <ion-toolbar class="ion-toolbar-transparent">
+    <button ion-button icon-only menuToggle left>
+      <ion-icon ios="ios-menu" md="md-menu"></ion-icon>
+    </button>
+    <!--<ion-title>-->
+    <!--Title-->
+    <!--</ion-title>-->
+    <!--<ion-buttons end>-->
+    <!--<button ion-button (click)="doClick()">-->
+    <!--<ion-icon name="more"></ion-icon>-->
+    <!--</button>-->
+    <!--</ion-buttons>-->
+  </ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
-    {{usuarioLogado | json}}
+<ion-content padding class="content-toolbar">
+
+  <div class="main-container">
+    <button class="button-primary" (click)="realizarLogoutNormal()">
+      LOGOUT
+    </button>
+  </div>
 </ion-content>
