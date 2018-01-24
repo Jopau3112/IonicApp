@@ -466,20 +466,80 @@ ion-buttons {
 }
 
 //TOOLBAR
-ion-toolbar {
-  left: 0;
-  top: 0;
-  position: absolute;
-  z-index: 10;
-  display: block;
-  width: 100%;
-}
 
-.ion-toolbar-transparent .toolbar-background {
-  background: transparent !important;
+.toolbar-background.toolbar-background-md {
+  background: #ffffff !important;
 }
 
 .content-toolbar {
-  margin-top: 56px !important;
+  margin-top: 46px !important;
 }
+
+//MENU
+ion-menu .menu-inner {
+  width: 70%;
+}
+
+ion-menu button {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+ion-menu .toolbar-background.toolbar-background-md {
+  background: transparent !important;
+}
+
+ion-menu .menu-inner .scroll-content {
+  background: #62278d;
+  background: -moz-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #62278d), color-stop(100%, #2cc09b));
+  background: -webkit-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+  background: -o-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+  background: -ms-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+  background: linear-gradient(to bottom, #62278d 0%, #2cc09b 100%);
+}
+
+ion-menu .menu-inner ion-header .toolbar-user {
+  padding-top: 20px !important;
+  min-height: 125px !important;
+  background-color: #62278d;
+  text-align: center !important;
+}
+
+.toolbar-user .ion-md-close {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  padding: 5px 10px;
+}
+
+.toolbar-user .ion-md-close:before {
+  color: #2cc09b !important;
+  font-size: 33px;
+}
+
+.toolbar-user .grid {
+  //border: 1px solid green;
+  width: 90%;
+}
+
+.toolbar-user .grid img {
+  border-radius: 50%;
+  width: 100px;
+  vertical-align: middle;
+}
+
+.toolbar-user .grid .col-name {
+  text-align: left !important;
+  //border: 1px solid peru;
+  vertical-align: middle;
+  padding-top: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 15px !important;
+  font-family: Lato, Sans-serif;
+}
+
+
 

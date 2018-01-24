@@ -1,15 +1,19 @@
-import { Component, ViewChild } from "@angular/core";
+import {Component, ViewChild} from "@angular/core";
 import {
   IonicPage,
   ViewController,
   AlertController,
   Slides
 } from "ionic-angular";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { patternValidator } from "../../../shared/pattern-validator";
-import { ModalController } from "ionic-angular";
-import { RootScopeService } from "../../../providers/root-scope/root-scope";
-import { FuncionesAuxiliares } from "../../../globals/functions.globals";
+import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {patternValidator} from "../../../shared/pattern-validator";
+import {ModalController} from "ionic-angular";
+
+import {FuncionesAuxiliares} from "../../../globals/functions.globals";
+import {RootScopeService} from "../../../providers/rootscope/rootscope.service";
+import {UsuariosService} from "../../../providers/usuarios/usuarios.service";
+import {Usuario} from "../../../interfaces/usuario.interface";
+
 
 @IonicPage({
   name: "mi-registro-usuario"
@@ -19,15 +23,16 @@ import { FuncionesAuxiliares } from "../../../globals/functions.globals";
   templateUrl: "registro-usuario.html"
 })
 export class RegistroUsuarioPage {
-  usuario: any = {
-    nombre: "",
-    apellidos: "",
-    fechaNacimiento: "",
-    email: "",
-    user: "",
-    password: "",
-    confirmPassword: ""
+  usuario: Usuario = {
+    nombre: "Luis",
+    apellidos: "Garcia",
+    fechaNacimiento: "10-05-1980",
+    email: "pepe@gmail.com",
+    user: "pepe",
+    password: "123",
+    confirmPassword: "123"
   };
+  usuarios: any[];
   //Reactive Forms Angular
   formulario: FormGroup;
 
@@ -41,18 +46,20 @@ export class RegistroUsuarioPage {
 
   fa = new FuncionesAuxiliares();
 
-  constructor(
-    private viewCtrl: ViewController,
-    private alertCtrl: AlertController,
-    private modalCtrl: ModalController,
-    private _rss: RootScopeService
-  ) {
+  constructor(private viewCtrl: ViewController,
+              private alertCtrl: AlertController,
+              private modalCtrl: ModalController,
+              private _rss: RootScopeService,
+              private _us: UsuariosService) {
     this.createForm();
     //CARGAR VALOR DEL SERVICIO USANDO OBSERVABLE (ROOTSCOPE)
     this._rss.dataChange.subscribe(data => {
       console.log("FECHA ELEGIDA EN MODAL:" + data);
       this.usuario.fechaNacimiento = data;
     });
+
+    this.usuarios = this._us.usuarios;
+    // console.log(this.usuarios);
   }
 
   ionViewDidLoad() {
@@ -85,19 +92,20 @@ export class RegistroUsuarioPage {
       this.passwordMatchValidator
     );
   }
+
   // }, {validators: passwordMatchValidator, asyncValidators: otherValidator});
 
   passwordMatchValidator(g: FormGroup) {
     return g.get("contrasenia").value === g.get("confirmContrasenia").value
       ? null
-      : { mismatch: true };
+      : {mismatch: true};
   }
 
   //MOSTRAR ALERT INFORMACION
-  showAlert() {
+  showAlert(mensaje) {
     let alert = this.alertCtrl.create({
       title: "NUEVO REGISTRO",
-      subTitle: "Se ha realizado el registro de usuario correctamente.",
+      subTitle: mensaje,
       buttons: ["Aceptar"]
     });
     alert.present();
@@ -124,18 +132,23 @@ export class RegistroUsuarioPage {
 
   //METODO REGISTRO USUARIO
   registrarUsuario(form: any) {
-    console.log(this.usuario);
     this.cerrarModalRegistro();
-    this.showAlert();
-    let users = [];
-    if (localStorage.getItem("LS_Usuarios")) {
-      users = JSON.parse(localStorage.getItem("LS_Usuarios"));
-    }
     //Añadiendo algunos campos a usuario
-    this.usuario.tieneHuella = false;
-    this.usuario.permiteHuella = false;
-    this.usuario.id = this.fa.createGuid();
-    users.push(this.usuario);
-    localStorage.setItem("LS_Usuarios", JSON.stringify(users));
+    let user = this.usuario;
+    delete user.confirmPassword;
+    user.tieneHuella = false;
+    user.permiteHuella = false;
+    user.tokenHuella = "";
+    user.key = this.fa.createGuid();
+    this._us.addUsuario(user).subscribe(
+      (res) => {
+        console.log("Registrado correctamente");
+        this.showAlert("Se ha realizado el registro de usuario correctamente.");
+      },
+      (error) => {
+        console.log("Error al registrar");
+        this.showAlert("Ha ocurrido un error al registrar usuario.");
+      }
+    );
   }
 }

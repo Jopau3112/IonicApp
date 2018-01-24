@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 import {
   IonicPage,
   NavController,
@@ -9,20 +9,20 @@ import {
   ToastController,
   MenuController
 } from "ionic-angular";
-import { AndroidFingerprintAuth } from "@ionic-native/android-fingerprint-auth";
-import { TwitterConnect } from "@ionic-native/twitter-connect";
-import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook";
-import { GooglePlus } from "@ionic-native/google-plus";
+import {AndroidFingerprintAuth} from "@ionic-native/android-fingerprint-auth";
+import {TwitterConnect} from "@ionic-native/twitter-connect";
+import {Facebook, FacebookLoginResponse} from "@ionic-native/facebook";
+import {GooglePlus} from "@ionic-native/google-plus";
 
-import { FuncionesAuxiliares } from "../../globals/functions.globals";
-import {
-  trigger,
-  state,
-  animate,
-  transition,
-  style,
-  query
-} from "@angular/animations";
+import {RootScopeService} from "../../providers/rootscope/rootscope.service";
+import {FuncionesAuxiliares} from "../../globals/functions.globals";
+// import {fadeInAnimation, routerAnimation, slideInOutAnimation} from "../../animations/index.animations";
+// import {NativePageTransitions} from '@ionic-native/native-page-transitions';
+// import {USUARIO_FACEBOOK_FIREBASE, USUARIO_GOOGLE, USUARIO_TWITTER} from "../../data/usuarios.data";
+
+import {AngularFireAuth} from 'angularfire2/auth';
+
+// import * as firebase from 'firebase/app';
 
 @IonicPage({
   name: "mi-menu-principal"
@@ -30,29 +30,35 @@ import {
 @Component({
   selector: "page-menu-principal",
   templateUrl: "menu-principal.html"
+  // animations: [slideInOutAnimation()],
+  // host: {'[@slideInOutAnimation]': ''
+  // }
 })
+
 export class MenuPrincipalPage {
   usuarioLogado: any;
+  usuarioMostrado: any = {};
   modoEntrada: number; //(0:Normal  1:Huella  2:Google  3:Facebook  4:Twitter)
 
   fa = new FuncionesAuxiliares();
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public appCtrl: App,
-    private platform: Platform,
-    private alertCtrl: AlertController,
-    private toastCtrl: ToastController,
-    public menuCtrl: MenuController,
-    private afa: AndroidFingerprintAuth,
-    private twitter: TwitterConnect,
-    private facebook: Facebook,
-    private google: GooglePlus
-  ) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public appCtrl: App,
+              private platform: Platform,
+              private alertCtrl: AlertController,
+              private toastCtrl: ToastController,
+              public menuCtrl: MenuController,
+              private afa: AndroidFingerprintAuth,
+              private twitter: TwitterConnect,
+              private facebook: Facebook,
+              private google: GooglePlus,
+              private _rss: RootScopeService,
+              private afAuth: AngularFireAuth) {
     //Recogemos parametros
     this.usuarioLogado = this.navParams.get("usuario");
     this.modoEntrada = this.navParams.get("modo");
+    console.log("USUARIO:");
     console.log(this.usuarioLogado);
     console.log("Modo:" + this.modoEntrada);
     //Volver a inicio
@@ -68,11 +74,47 @@ export class MenuPrincipalPage {
           console.log("Usuario con huella registrada");
         }
       }
+      this.generarUsuario(this.modoEntrada);
     }
   }
 
   ionViewDidLoad() {
     this.menuCtrl.swipeEnable(true, "menuIzquierda");
+  }
+
+  //GENERAR USUARIO GENERICO DEPENDIENDO DEL MODO DE ENTRADA
+  generarUsuario(modo) {
+    let user = {
+      nombre: "",
+      apellidos: "",
+      imagen: ""
+    };
+    //(0:Normal  1:Huella  2:Google  3:Facebook  4:Twitter)
+    switch (modo) {
+      case 2:
+        user.nombre = this.usuarioLogado.givenName;
+        user.apellidos = this.usuarioLogado.familyName;
+        user.imagen = this.usuarioLogado.imageUrl;
+        break;
+      case 3:
+        user.nombre = this.usuarioLogado.additionalUserInfo.profile.first_name;
+        user.apellidos = this.usuarioLogado.additionalUserInfo.profile.last_name;
+        user.imagen = this.usuarioLogado.additionalUserInfo.profile.picture.data.url;
+        break;
+      case 4:
+        user.nombre = this.usuarioLogado.name;
+        user.apellidos = "";
+        user.imagen = this.usuarioLogado.profile_image_url_https;
+        break;
+      default:
+        user.nombre = this.usuarioLogado.nombre;
+        user.apellidos = this.usuarioLogado.apellidos;
+        user.imagen = "http://www.tipsaludable.com/wp-content/uploads/2017/08/b1-8.jpg";
+        break;
+    }
+    // Actualizando valor del usuario info usando el servicio
+    this._rss.setData(user);
+    this.usuarioMostrado = user;
   }
 
   //MOSTRAR INFORMACION HUELLA DIGITAL
@@ -190,6 +232,29 @@ export class MenuPrincipalPage {
   /*********************************************************************************************************/
   //REALIZAR LOGOUT
   /*********************************************************************************************************/
+  realizarLogout() {
+    let modo = this.modoEntrada;
+    if (!this.platform.is("cordova")) {
+      this.realizarLogoutNormal();
+    } else {
+      //(0:Normal  1:Huella  2:Google  3:Facebook  4:Twitter)
+      switch (modo) {
+        case 2:
+          this.realizarLogoutGoogle();
+          break;
+        case 3:
+          this.realizarLogoutFacebookFirebase();
+          break;
+        case 4:
+          this.realizarLogoutTwitter();
+          break;
+        default:
+          this.realizarLogoutNormal();
+          break;
+      }
+    }
+  }
+
   realizarLogoutNormal() {
     this.navCtrl.pop();
   }
@@ -209,31 +274,34 @@ export class MenuPrincipalPage {
 
   realizarLogoutFacebook() {
     console.log("Logout Facebook");
+    this.facebook
+      .logout()
+      .then((res: FacebookLoginResponse) => {
+        console.log(res);
+        this.navCtrl.pop();
+      })
+      .catch(e => console.log("Error logging into Facebook", e));
+  }
+
+  realizarLogoutFacebookFirebase() {
+    console.log("Logout Facebook Firebase");
     if (this.platform.is("cordova")) {
-      this.facebook
-        .logout()
-        .then((res: FacebookLoginResponse) => {
-          console.log(res);
-          this.navCtrl.pop();
-        })
-        .catch(e => console.log("Error logging into Facebook", e));
-      // this.facebook.logEvent(this.facebook.EVENTS.EVENT_NAME_ADDED_TO_CART);
+      this.afAuth.auth.signOut();
+      this.navCtrl.pop();
     }
   }
 
   realizarLogoutTwitter() {
     console.log("Logout Twitter");
-    if (this.platform.is("cordova")) {
-      this.twitter.logout().then(
-        response => {
-          console.log(response);
-          this.navCtrl.pop();
-        },
-        error => {
-          console.log(error);
-        }
-      );
-    }
+    this.twitter.logout().then(
+      response => {
+        console.log(response);
+        this.navCtrl.pop();
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   /*********************************************************************************************************/

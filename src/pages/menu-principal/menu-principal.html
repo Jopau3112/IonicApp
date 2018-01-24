@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-navbar hideBackButton="true">
+  <ion-navbar hideBackButton="true" class="bar-transparent">
 
   </ion-navbar>
 
-  <ion-toolbar class="ion-toolbar-transparent">
+  <ion-toolbar>
     <button ion-button icon-only menuToggle left>
       <ion-icon ios="ios-menu" md="md-menu"></ion-icon>
     </button>
@@ -21,8 +21,9 @@
 
 <ion-content padding class="content-toolbar">
 
-  <div class="main-container">
-    <button class="button-primary" (click)="realizarLogoutNormal()">
+  <div class="main-container animated fadeIn">
+    <textarea name="" cols="39" rows="20" style="border:2px solid peru">{{usuarioLogado | json}}</textarea>
+    <button class="button-primary" ion-button block (click)="realizarLogout()">
       LOGOUT
     </button>
   </div>

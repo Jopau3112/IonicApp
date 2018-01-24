@@ -1,16 +1,24 @@
 <ion-menu [content]="menuIzquierda" side="left" id="menuIzquierda">
 
   <ion-header>
-    <ion-toolbar color="secondary">
-      <ion-title>Menu 1</ion-title>
+    <ion-toolbar class="toolbar-user">
+      <ion-icon ios="ios-close" md="md-close" menuClose="menuIzquierda"></ion-icon>
+      <ion-grid *ngIf="usuario">
+        <ion-row>
+          <ion-col col-4>
+            <img [src]="usuario.imagen">
+          </ion-col>
+          <ion-col col-8 class="col-name">
+            {{usuario.nombre}} {{usuario.apellidos}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
-      <button ion-item menuClose="menuIzquierda">
-        Close Menu 1
-      </button>
+
     </ion-list>
   </ion-content>
 

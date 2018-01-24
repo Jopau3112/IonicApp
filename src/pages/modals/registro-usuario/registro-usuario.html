@@ -1,87 +1,110 @@
 <ion-header>
-    <!--
-    <ion-navbar color="morado" class="nav-bar-transparent">
-        <ion-title>Recuperar</ion-title>
-        <ion-buttons end>
-            <button ion-button (click)="cerrarModalRecuperar()">Cancelar</button>
-        </ion-buttons>
-    </ion-navbar> -->
+  <!--
+  <ion-navbar color="morado" class="nav-bar-transparent">
+      <ion-title>Recuperar</ion-title>
+      <ion-buttons end>
+          <button ion-button (click)="cerrarModalRecuperar()">Cancelar</button>
+      </ion-buttons>
+  </ion-navbar> -->
 
 </ion-header>
 
 
 <ion-content padding>
-    <div class="main-container">
-        <div class="header-container">
-            <button class="button-right" ion-button (click)="cerrarModalRegistro()">CANCELAR</button>
-        </div>
-        <div class="content-container">
-            <div class="text-container" padding text-center>
-                <h2 class="title">REGISTRARSE</h2>
-            </div>
-            <div class="form-container">
-                <form [formGroup]="formulario" #form="ngForm" novalidate>
-                    <ion-list>
-                        <div class="personal-information">
-                            <!-- Nombre -->
-                            <ion-item class="form-group">
-                                <ion-label>NOMBRE</ion-label>
-                                <ion-input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Luis" formControlName="nombre" [(ngModel)]="usuario.nombre"></ion-input>
-                            </ion-item>
-                            <!-- Apellidos -->
-                            <ion-item class="form-group">
-                                <ion-label>APELLIDOS</ion-label>
-                                <ion-input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Ej: García Franco" formControlName="apellidos" [(ngModel)]="usuario.apellidos"></ion-input>
-                            </ion-item>
-                            <!-- Fecha Nacimiento -->
-                            <ion-item class="form-group">
-                                <ion-label>FECHA NACIMIENTO</ion-label>
-                                <ion-input type="text" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ej: dd/mm/yyyy" formControlName="fecha" [(ngModel)]="usuario.fechaNacimiento" readonly (focus)="abrirModalFecha()"></ion-input>
-                            </ion-item>
-                            <!-- Email -->
-                            <ion-item class="form-group">
-                                <ion-label>EMAIL</ion-label>
-                                <ion-input type="email" class="form-control" id="email" name="email" placeholder="Ej: me@example.com" formControlName="correo" [(ngModel)]="usuario.email"></ion-input>
-                            </ion-item>
-                            <div *ngIf="formulario.controls.correo.errors && formulario.controls.correo.dirty" class="alert alert-danger">
-                                <div *ngIf="formulario.controls.correo.errors.patternInvalid">Formato incorrecto email</div>
-                            </div>
-                        </div>
-                        <div class="account-information">
-                            <!-- Usuario -->
-                            <ion-item class="form-group">
-                                <ion-label>USUARIO</ion-label>
-                                <ion-input type="text" class="form-control" id="user" name="user" placeholder="Ej: myusuario" formControlName="usuario" [(ngModel)]="usuario.user"></ion-input>
-                            </ion-item>
-                            <div *ngIf="formulario.controls.usuario.errors && formulario.controls.usuario.dirty" class="alert alert-danger">
-                                <div *ngIf="formulario.controls.usuario.errors.minlength">Debe tener 4 o más caracteres</div>
-                            </div>
-                            <!-- Password -->
-                            <ion-item class="form-group">
-                                <ion-label>CONTRASEÑA</ion-label>
-                                <ion-input type="password" class="form-control" id="password" name="password" placeholder="Ej: 1234" formControlName="contrasenia" [(ngModel)]="usuario.password"></ion-input>
-                            </ion-item>
-                            <div *ngIf="formulario.controls.contrasenia.errors && formulario.controls.contrasenia.dirty" class="alert alert-danger">
-                                <div *ngIf="formulario.controls.contrasenia.errors.minlength">Debe tener 3 o más caracteres</div>
-                            </div>
-                            <!-- Confirmar Password -->
-                            <ion-item class="form-group">
-                                <ion-label>REPETIR CONTRASEÑA</ion-label>
-                                <ion-input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Ej: 1234" formControlName="confirmContrasenia" [(ngModel)]="usuario.confirmPassword"></ion-input>
-                            </ion-item>
-                            <div *ngIf="formulario.errors?.mismatch && formulario.controls.confirmContrasenia.dirty" class="alert alert-danger">No coinciden contraseñas</div>
-                        </div>
-                    </ion-list>
-                    <button ion-button block class="button-primary" (click)="registrarUsuario(form)" [disabled]="formulario.invalid">
-                        <ion-icon ios="ios-add" md="md-add"></ion-icon>
-                        <span>REGISTRAR</span>
-                    </button>
-                </form>
-            </div>
-        </div>
+  <div class="main-container">
+    <div class="header-container">
+      <button class="button-right" ion-button (click)="cerrarModalRegistro()">CANCELAR</button>
     </div>
+    <div class="content-container">
+      <div class="text-container" padding text-center>
+        <h2 class="title">REGISTRARSE</h2>
+      </div>
+      <div class="form-container">
+        <form [formGroup]="formulario" #form="ngForm" novalidate>
+          <ion-list>
+            <div class="personal-information">
+              <!-- Nombre -->
+              <ion-item class="form-group">
+                <ion-label>NOMBRE</ion-label>
+                <ion-input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Luis"
+                           formControlName="nombre" [(ngModel)]="usuario.nombre"></ion-input>
+              </ion-item>
+              <!-- Apellidos -->
+              <ion-item class="form-group">
+                <ion-label>APELLIDOS</ion-label>
+                <ion-input type="text" class="form-control" id="apellidos" name="apellidos"
+                           placeholder="Ej: García Franco" formControlName="apellidos"
+                           [(ngModel)]="usuario.apellidos"></ion-input>
+              </ion-item>
+              <!-- Fecha Nacimiento -->
+              <ion-item class="form-group">
+                <ion-label>FECHA NACIMIENTO</ion-label>
+                <ion-input type="text" class="form-control" id="fechaNacimiento" name="fechaNacimiento"
+                           placeholder="Ej: dd/mm/yyyy" formControlName="fecha" [(ngModel)]="usuario.fechaNacimiento"
+                           readonly (focus)="abrirModalFecha()"></ion-input>
+              </ion-item>
+              <!-- Email -->
+              <ion-item class="form-group">
+                <ion-label>EMAIL</ion-label>
+                <ion-input type="email" class="form-control" id="email" name="email" placeholder="Ej: me@example.com"
+                           formControlName="correo" [(ngModel)]="usuario.email"></ion-input>
+              </ion-item>
+              <div *ngIf="formulario.controls.correo.errors && formulario.controls.correo.dirty"
+                   class="alert alert-danger">
+                <div *ngIf="formulario.controls.correo.errors.patternInvalid">Formato incorrecto email</div>
+              </div>
+            </div>
+            <div class="account-information">
+              <!-- Usuario -->
+              <ion-item class="form-group">
+                <ion-label>USUARIO</ion-label>
+                <ion-input type="text" class="form-control" id="user" name="user" placeholder="Ej: myusuario"
+                           formControlName="usuario" [(ngModel)]="usuario.user"></ion-input>
+              </ion-item>
+              <div *ngIf="formulario.controls.usuario.errors && formulario.controls.usuario.dirty"
+                   class="alert alert-danger">
+                <div *ngIf="formulario.controls.usuario.errors.minlength">Debe tener 4 o más caracteres</div>
+              </div>
+              <!-- Password -->
+              <ion-item class="form-group">
+                <ion-label>CONTRASEÑA</ion-label>
+                <ion-input type="password" class="form-control" id="password" name="password" placeholder="Ej: 1234"
+                           formControlName="contrasenia" [(ngModel)]="usuario.password"></ion-input>
+              </ion-item>
+              <div *ngIf="formulario.controls.contrasenia.errors && formulario.controls.contrasenia.dirty"
+                   class="alert alert-danger">
+                <div *ngIf="formulario.controls.contrasenia.errors.minlength">Debe tener 3 o más caracteres</div>
+              </div>
+              <!-- Confirmar Password -->
+              <ion-item class="form-group">
+                <ion-label>REPETIR CONTRASEÑA</ion-label>
+                <ion-input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                           placeholder="Ej: 1234" formControlName="confirmContrasenia"
+                           [(ngModel)]="usuario.confirmPassword"></ion-input>
+              </ion-item>
+              <div *ngIf="formulario.errors?.mismatch && formulario.controls.confirmContrasenia.dirty"
+                   class="alert alert-danger">No coinciden contraseñas
+              </div>
+            </div>
+          </ion-list>
+          <ion-list>
 
+            <!--<ion-item *ngFor="let usuario of usuarios | async">-->
+            <!--<div>-->
+            <!--{{usuarioDefecto | json}}-->
+            <!--</div>-->
+            <!--</ion-item>-->
 
+          </ion-list>
+          <button ion-button block class="button-primary" (click)="registrarUsuario(form)"
+                  [disabled]="formulario.invalid">
+            <ion-icon ios="ios-add" md="md-add"></ion-icon>
+            <span>REGISTRAR</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
 </ion-content>

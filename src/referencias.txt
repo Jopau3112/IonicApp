@@ -1,3 +1,14 @@
+ANIMATIONS
+----------
+https://www.javascripttuts.com/the-complete-guide-to-animations-with-ionic/
+https://alligator.io/angular/animation-angular/
+https://angularfirebase.com/snippets/router-transition-animations-with-angular-4/
+
+DATABASE FIREBASE
+-----------------
+https://github.com/angular/angularfire2/blob/master/docs/ionic/v3.md
+https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
+
 PLUGINS
 --------
 
@@ -15,7 +26,9 @@ PLUGINS
     - https://github.com/jeduan/cordova-plugin-facebook4
     - https://ionicthemes.com/tutorials/about/ionic2-facebook-login
     - https://blog.ng-classroom.com/blog/ionic2/facebook-and-ionic/
-    ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="198304457389743" --variable APP_NAME="IonicAppJoel"
+    - https://www.youtube.com/watch?v=stxCOBr5d8o (FACEBOOK FIREBASE)
+    ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="317370175420074" --variable APP_NAME="IonicAppJoel"
+    317370175420074
 
 4. PLUGIN GOOGLE LOGIN (Google Plus)
     - https://github.com/EddyVerbruggen/cordova-plugin-googleplus
@@ -23,6 +36,4 @@ PLUGINS
     ionic plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID=648287590958-jr349l3founp568r0vi2rbqshuqmrgea.apps.googleusercontent.com
 
 
-https://angularfirebase.com/snippets/router-transition-animations-with-angular-4/
-https://alligator.io/angular/animation-angular/
-http://jasonwatmore.com/post/2017/04/19/angular-2-4-router-animation-tutorial-example
+

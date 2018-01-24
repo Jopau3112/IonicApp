@@ -1,4 +1,4 @@
-import { RootScopeService } from "./../../../providers/root-scope/root-scope";
+import { RootScopeService } from "../../../providers/rootscope/rootscope.service";
 import { ANIOS, ANIO_INICIAL, ANIO_ACTUAL } from "./../../../data/anios.data";
 import { MESES, MES_ACTUAL } from "../../../data/meses.data";
 import { Component } from "@angular/core";

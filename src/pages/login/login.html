@@ -18,8 +18,9 @@
           <img src="assets/imgs/logo-texto.png" class="texto">
       </div>
   </div> -->
-  <div class="main-container animated">
-    <div class="logo-container animated fadeIn">
+  <div class="main-container animated fadeIn">
+    <div class="logo-container" (click)="probarCamera()">
+      <img [src]="imagen" *ngIf="imagen">
       <img src="assets/imgs/logo-blanco.png">
     </div>
     <div class="form-container">
@@ -98,7 +99,7 @@
                 <ion-icon name="add"></ion-icon>
               </button>
               <ion-fab-list side="left">
-                <button ion-fab (click)="realizarLoginFacebook()">
+                <button ion-fab (click)="realizarLoginFacebookFirebase()">
                   <ion-icon name="logo-facebook"></ion-icon>
                 </button>
                 <button ion-fab (click)="realizarLoginTwitter()">
